@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 7037936112950772366}
   - component: {fileID: 5984343463932252027}
   - component: {fileID: 3613087902970898422}
+  - component: {fileID: 4927174070138922346}
   m_Layer: 0
   m_Name: Platform Left
   m_TagString: Untagged
@@ -137,3 +138,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.73, y: 0.17}
   m_EdgeRadius: 0
+--- !u!114 &4927174070138922346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646146752707464085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e40b326153df741927bebe521eef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  one_Banana: {fileID: 2210108485148596896, guid: d10162f8035de68479e612a06881e688,
+    type: 3}
+  bananas: {fileID: 6827421270297771636, guid: d058c202800233646a287791351607ec, type: 3}
+  spawn_Point: {fileID: 5454467382534147960}

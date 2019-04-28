@@ -25,16 +25,34 @@ public class PlayerScript : MonoBehaviour
     }
 
  
-    void Update()
+    void FixedUpdate()
     {
-    
+        Move();
+    }
+
+    void Move()
+    {
+        if (player_Died)
+            return;
+
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            myBody.velocity = new Vector2(move_Speed, myBody.velocity.y);
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            myBody.velocity = new Vector2(-move_Speed, myBody.velocity.y);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D target)
     {
+        if (player_Died)
+            return;
+
         if (target.tag == "ExtraPush")
         {
-            if(!initial_Push)
+            if (!initial_Push)
             {
                 initial_Push = true;
                 myBody.velocity = new Vector2(myBody.velocity.x, 18f);
@@ -45,9 +63,22 @@ public class PlayerScript : MonoBehaviour
                 return;
             }
         }
-    }
+        if (target.tag == "NormalPush")
+        {
+            myBody.velocity = new Vector2(myBody.velocity.x, normal_Push);
+            target.gameObject.SetActive(false);
+            push_Count++;
+            // SoundManager
+        }
 
-   
-        
+        if (target.tag == "ExtraPush")
+        {
+            myBody.velocity = new Vector2(myBody.velocity.x, extra_Push);
+            target.gameObject.SetActive(false);
+            push_Count++;
+
+        }
+
+    }     
     
 }
