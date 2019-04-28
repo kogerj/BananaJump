@@ -12,7 +12,5 @@ public class Collector : MonoBehaviour
             target.gameObject.SetActive(false);
         }
     }
-    {
-        
-    }
+  
 }

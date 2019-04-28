@@ -58,7 +58,7 @@ public class PlayerScript : MonoBehaviour
                 myBody.velocity = new Vector2(myBody.velocity.x, 18f);
                 target.gameObject.SetActive(false);
 
-                //SoundManager
+                SoundManager.instance.JumpSoundFX();
 
                 return;
             }
@@ -68,7 +68,7 @@ public class PlayerScript : MonoBehaviour
             myBody.velocity = new Vector2(myBody.velocity.x, normal_Push);
             target.gameObject.SetActive(false);
             push_Count++;
-            // SoundManager
+            SoundManager.instance.JumpSoundFX();
         }
 
         if (target.tag == "ExtraPush")
@@ -76,6 +76,7 @@ public class PlayerScript : MonoBehaviour
             myBody.velocity = new Vector2(myBody.velocity.x, extra_Push);
             target.gameObject.SetActive(false);
             push_Count++;
+            SoundManager.instance.JumpSoundFX();
 
         }
 
@@ -83,6 +84,14 @@ public class PlayerScript : MonoBehaviour
         {
             push_Count = 0;
             PlatformSpawner.instance.SpawnPlatforms();
+        }
+
+        if(target.tag == "FallDown" || target.tag == "Bird")
+        {
+            player_Died = true;
+
+            GameManager.instance.RestartGame();
+            SoundManager.instance.GameOverSoundFX();
         }
     }     
     
