@@ -79,6 +79,11 @@ public class PlayerScript : MonoBehaviour
 
         }
 
+        if(push_Count == 2)
+        {
+            push_Count = 0;
+            PlatformSpawner.instance.SpawnPlatforms();
+        }
     }     
     
 }

@@ -66,6 +66,7 @@ public class PlatformSpawner : MonoBehaviour
 
             newPlatform.transform.parent = platform_Parent;
 
+
             last_Y += y_Treshold;
             platform_Spawned++;
         }
