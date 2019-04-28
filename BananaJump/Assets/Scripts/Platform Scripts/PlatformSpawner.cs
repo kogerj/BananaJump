@@ -25,6 +25,10 @@ public class PlatformSpawner : MonoBehaviour
 
     private Transform platform_Parent;
 
+    [SerializeField]
+    private GameObject bird;
+    public float bird_Y = 5f;
+    private float bird_X_Min = -2.3f, bird_X_Max = 2.3f;
 
 
     void Awake()
@@ -71,5 +75,18 @@ public class PlatformSpawner : MonoBehaviour
             platform_Spawned++;
         }
 
+       if (Random.Range (0,2) > 0)
+        {
+            SpawnBird();
+        }
+    }
+    void SpawnBird()
+    {
+        Vector2 temp = transform.position;
+        temp.x = Random.Range(bird_X_Min, bird_X_Max);
+        temp.y += bird_Y;
+
+        GameObject newBird = Instantiate(bird, temp, Quaternion.identity);
+        newBird.transform.parent = platform_Parent;
     }
 }

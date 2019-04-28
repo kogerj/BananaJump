@@ -35,11 +35,11 @@ public class PlayerScript : MonoBehaviour
         if (player_Died)
             return;
 
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (Input.acceleration.x > 0.1)
         {
             myBody.velocity = new Vector2(move_Speed, myBody.velocity.y);
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
+        else if (Input.acceleration.x < -0.1)
         {
             myBody.velocity = new Vector2(-move_Speed, myBody.velocity.y);
         }

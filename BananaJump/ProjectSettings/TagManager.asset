@@ -6,6 +6,10 @@ TagManager:
   tags:
   - ExtraPush
   - BG
+  - NormalPush
+  - Platform
+  - Bird
+  - FallDown
   layers:
   - Default
   - TransparentFX
